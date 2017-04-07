@@ -8,6 +8,6 @@ String.prototype.includes || (String.prototype.includes = function() {
     return obj;
 });
 
-module.exports={
-	client:require("./lib/client")
+module.exports = {
+    client: require("./lib/client")
 };

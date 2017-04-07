@@ -339,7 +339,7 @@ var tests = [{
 describe('commands (justinfan)', function() {
     beforeEach(function() {
         // Initialize websocket server
-        this.server = new WebSocketServer({port: 7000});
+        this.server = new WebSocketServer({ port: 7000 });
         this.client = new tmi.client({
             connection: {
                 server: 'localhost',
@@ -508,7 +508,7 @@ describe('commands (justinfan)', function() {
 describe('commands (identity)', function() {
     beforeEach(function() {
         // Initialize websocket server
-        this.server = new WebSocketServer({port: 7000});
+        this.server = new WebSocketServer({ port: 7000 });
         this.client = new tmi.client({
             connection: {
                 server: 'localhost',
@@ -539,7 +539,7 @@ describe('commands (identity)', function() {
         });
 
         client.on('logon', function() {
-            client.action('#local7000', 'Hello').then(function (data) {
+            client.action('#local7000', 'Hello').then(function(data) {
                 data[0].should.eql('#local7000');
                 data[1].should.eql('\u0001ACTION Hello\u0001');
                 client.disconnect();
@@ -563,7 +563,7 @@ describe('commands (identity)', function() {
         });
 
         client.on('logon', function() {
-            client.say('#local7000', 'Hello').then(function (data) {
+            client.say('#local7000', 'Hello').then(function(data) {
                 data[0].should.eql('#local7000');
                 data[1].should.eql('Hello');
                 client.disconnect();
@@ -631,7 +631,7 @@ describe('commands (identity)', function() {
             });
 
             client.on('logon', function() {
-                client.say('#local7000', `${me} Hello`).then(function (data) {
+                client.say('#local7000', `${me} Hello`).then(function(data) {
                     data[0].should.eql('#local7000');
                     data[1].should.eql('\u0001ACTION Hello\u0001');
                     client.disconnect();
@@ -648,7 +648,7 @@ describe('commands (identity)', function() {
             var client = this.client;
 
             client.on('logon', function() {
-                client.say('#local7000', `${prefix}FOO`).then(function (data) {
+                client.say('#local7000', `${prefix}FOO`).then(function(data) {
                     data[0].should.eql('#local7000');
                     data.length.should.eql(2);
                     client.disconnect();
@@ -665,7 +665,7 @@ describe('commands (identity)', function() {
             var client = this.client;
 
             client.on('logon', function() {
-                client.say('#local7000', `${prefix}FOO`).then(function (data) {
+                client.say('#local7000', `${prefix}FOO`).then(function(data) {
                     data[0].should.eql('#local7000');
                     data[1].should.eql(`${prefix}FOO`);
                     data.length.should.eql(2);

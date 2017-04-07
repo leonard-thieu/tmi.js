@@ -12,7 +12,7 @@ var tests = [
 describe('handling authentication', function() {
     beforeEach(function() {
         // Initialize websocket server
-        this.server = new WebSocketServer({port: 7000});
+        this.server = new WebSocketServer({ port: 7000 });
         this.client = new tmi.client({
             logger: {
                 error: noop,
