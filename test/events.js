@@ -4,7 +4,7 @@ var events = [{
     name: 'action',
     data: "@badges=broadcaster/1,warcraft/horde;color=#0D4200;display-name=Schmoopiie;emotes=25:0-4,12-16/1902:6-10;subscriber=0;turbo=1;user-type=global_mod :schmoopiie!~schmoopiie@schmoopiie.tmi.twitch.tv PRIVMSG #schmoopiie :\u0001ACTION Hello :)\u0001",
     expected: [
-        '#schmoopiie',
+        'schmoopiie',
         {
             badges: { broadcaster: '1', warcraft: 'horde' },
             color: '#0D4200',
@@ -27,7 +27,7 @@ var events = [{
     name: 'ban',
     data: '@ban-reason=this\\sis\\sa\\stest :tmi.twitch.tv CLEARCHAT #schmoopiie :schmoopiie',
     expected: [
-        '#schmoopiie',
+        'schmoopiie',
         'schmoopiie',
         'this is a test'
     ]
@@ -35,7 +35,7 @@ var events = [{
     name: 'chat',
     data: "@badges=broadcaster/1,warcraft/horde;color=#0D4200;display-name=Schmoopiie;emotes=25:0-4,12-16/1902:6-10;subscriber=0;turbo=1;user-type=global_mod :schmoopiie!~schmoopiie@schmoopiie.tmi.twitch.tv PRIVMSG #schmoopiie :Hello :)",
     expected: [
-        '#schmoopiie',
+        'schmoopiie',
         {
             badges: { broadcaster: '1', warcraft: 'horde' },
             color: '#0D4200',
@@ -58,7 +58,7 @@ var events = [{
     name: 'cheer',
     data: '@badges=broadcaster/1,warcraft/horde;color=#0D4200;bits=100;display-name=Schmoopiie;emotes=;subscriber=0;turbo=1;user-type=global_mod :schmoopiie!~schmoopiie@schmoopiie.tmi.twitch.tv PRIVMSG #schmoopiie :cheer100 Hello :)',
     expected: [
-        '#schmoopiie',
+        'schmoopiie',
         {
             badges: { broadcaster: '1', warcraft: 'horde' },
             bits: '100',
@@ -78,7 +78,7 @@ var events = [{
     name: 'clearchat',
     data: ':tmi.twitch.tv CLEARCHAT #schmoopiie',
     expected: [
-        '#schmoopiie'
+        'schmoopiie'
     ]
 }, {
     name: 'connected',
@@ -93,7 +93,7 @@ var events = [{
     name: 'hosted',
     data: ":jtv!~jtv@jtv.tmi.twitch.tv PRIVMSG #schmoopiie :Username is now hosting you for 11 viewers.",
     expected: [
-        '#schmoopiie',
+        'schmoopiie',
         'username',
         11
     ]
@@ -101,7 +101,7 @@ var events = [{
     name: 'hosting',
     data: ':tmi.twitch.tv HOSTTARGET #schmoopiie :schmoopiie 3',
     expected: [
-        '#schmoopiie',
+        'schmoopiie',
         'schmoopiie',
         3
     ]
@@ -109,7 +109,7 @@ var events = [{
     name: 'join',
     data: ':schmoopiie!schmoopiie@schmoopiie.tmi.twitch.tv JOIN #schmoopiie',
     expected: [
-        '#schmoopiie',
+        'schmoopiie',
         'schmoopiie',
         false
     ]
@@ -117,21 +117,21 @@ var events = [{
     name: 'mod',
     data: ':jtv MODE #schmoopiie +o schmoopiie',
     expected: [
-        '#schmoopiie',
+        'schmoopiie',
         'schmoopiie'
     ]
 }, {
     name: 'mods',
     data: '@msg-id=room_mods :tmi.twitch.tv NOTICE #schmoopiie :The moderators of this room are: user1, user2, user3',
     expected: [
-        '#schmoopiie',
+        'schmoopiie',
         ['user1', 'user2', 'user3']
     ]
 }, {
     name: 'part',
     data: ':schmoopiie!schmoopiie@schmoopiie.tmi.twitch.tv PART #schmoopiie',
     expected: [
-        '#schmoopiie',
+        'schmoopiie',
         'schmoopiie',
         false
     ]
@@ -145,34 +145,34 @@ var events = [{
     name: 'r9kbeta',
     data: '@msg-id=r9k_on :tmi.twitch.tv NOTICE #schmoopiie :This room is now in r9k mode.',
     expected: [
-        '#schmoopiie',
+        'schmoopiie',
         true
     ]
 }, {
     name: 'r9kbeta',
     data: '@msg-id=r9k_off :tmi.twitch.tv NOTICE #schmoopiie :This room is no longer in r9k mode.',
     expected: [
-        '#schmoopiie',
+        'schmoopiie',
         false
     ]
 }, {
     name: 'roomstate',
     data: '@broadcaster-lang=;r9k=0;slow=0;subs-only=0 :tmi.twitch.tv ROOMSTATE #schmoopiie',
     expected: [
-        '#schmoopiie',
+        'schmoopiie',
         {
             'broadcaster-lang': null,
             r9k: false,
             slow: false,
             'subs-only': false,
-            channel: '#schmoopiie'
+            channel: 'schmoopiie'
         }
     ]
 }, {
     name: 'slowmode',
     data: '@slow=8 :tmi.twitch.tv ROOMSTATE #schmoopiie',
     expected: [
-        '#schmoopiie',
+        'schmoopiie',
         true,
         8
     ]
@@ -180,7 +180,7 @@ var events = [{
     name: 'slowmode',
     data: '@slow=0 :tmi.twitch.tv ROOMSTATE #schmoopiie',
     expected: [
-        '#schmoopiie',
+        'schmoopiie',
         false,
         0
     ]
@@ -188,7 +188,7 @@ var events = [{
     name: 'subanniversary',
     data: '@badges=staff/1,broadcaster/1,turbo/1;color=#008000;display-name=Schmoopiie;emotes=;mod=0;msg-id=resub;msg-param-months=6;room-id=20624989;subscriber=0;system-msg=Schmoopiie\shas\ssubscribed\sfor\s6\smonths!;login=schmoopiie;turbo=1;user-id=20624989;user-type=staff :tmi.twitch.tv USERNOTICE #schmoopiie :Great stream -- keep it up!',
     expected: [
-        '#schmoopiie',
+        'schmoopiie',
         'Schmoopiie',
         6,
         'Great stream -- keep it up!'
@@ -197,7 +197,7 @@ var events = [{
     name: 'resub',
     data: '@badges=staff/1,broadcaster/1,turbo/1;color=#008000;display-name=Schmoopiie;emotes=;mod=0;msg-id=resub;msg-param-months=6;room-id=20624989;subscriber=0;system-msg=Schmoopiie\shas\ssubscribed\sfor\s6\smonths!;login=schmoopiie;turbo=1;user-id=20624989;user-type=staff :tmi.twitch.tv USERNOTICE #schmoopiie :Great stream -- keep it up!',
     expected: [
-        '#schmoopiie',
+        'schmoopiie',
         'Schmoopiie',
         6,
         'Great stream -- keep it up!'
@@ -206,28 +206,28 @@ var events = [{
     name: 'subscribers',
     data: '@msg-id=subs_on :tmi.twitch.tv NOTICE #schmoopiie :This room is now in subscribers-only mode.',
     expected: [
-        '#schmoopiie',
+        'schmoopiie',
         true
     ]
 }, {
     name: 'subscribers',
     data: '@msg-id=subs_off :tmi.twitch.tv NOTICE #schmoopiie :This room is no longer in subscribers-only mode.',
     expected: [
-        '#schmoopiie',
+        'schmoopiie',
         false
     ]
 }, {
     name: 'subscription',
     data: ':twitchnotify!twitchnotify@twitchnotify.tmi.twitch.tv PRIVMSG #schmoopiie :schmoopiie just subscribed!',
     expected: [
-        '#schmoopiie',
+        'schmoopiie',
         'schmoopiie'
     ]
 }, {
     name: 'timeout',
     data: '@ban-duration=60;ban-reason=this\\sis\\sa\\stest :tmi.twitch.tv CLEARCHAT #schmoopiie :schmoopiie',
     expected: [
-        '#schmoopiie',
+        'schmoopiie',
         'schmoopiie',
         'this is a test',
         60
@@ -236,21 +236,21 @@ var events = [{
     name: 'unhost',
     data: ':tmi.twitch.tv HOSTTARGET #schmoopiie :- 0',
     expected: [
-        '#schmoopiie',
+        'schmoopiie',
         0
     ]
 }, {
     name: 'unmod',
     data: ':jtv MODE #schmoopiie -o schmoopiie',
     expected: [
-        '#schmoopiie',
+        'schmoopiie',
         'schmoopiie'
     ]
 }, {
     name: 'whisper',
     data: '@color=#FFFFFF;display-name=Schmoopiie;emotes=;turbo=1;user-type= :schmoopiie!schmoopiie@schmoopiie.tmi.twitch.tv WHISPER martinlarouche :Hello! ;-)',
     expected: [
-        '#schmoopiie',
+        'schmoopiie',
         {
             color: '#FFFFFF',
             'display-name': 'Schmoopiie',
