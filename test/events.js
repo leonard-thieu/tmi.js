@@ -90,6 +90,19 @@ var events = [{
         '0'
     ]
 }, {
+    name: 'globaluserstate',
+    data: '@color=#0D4200;display-name=TWITCH_UserNaME;emote-sets=0,33,50,237,793,2126,3517,4578,5569,9400,10337,12239;turbo=0;user-id=1337;user-type=admin :tmi.twitch.tv GLOBALUSERSTATE',
+    expected: [
+        {
+            color: '#0D4200',
+            'display-name': 'TWITCH_UserNaME',
+            'emote-sets': [0, 33, 50, 237, 793, 2126, 3517, 4578, 5569, 9400, 10337, 12239],
+            turbo: false,
+            'user-id': '1337',
+            'user-type': 'admin'
+        }
+    ]
+}, {
     name: 'hosted',
     data: ":jtv!~jtv@jtv.tmi.twitch.tv PRIVMSG #schmoopiie :Username is now hosting you for 11 viewers.",
     expected: [
