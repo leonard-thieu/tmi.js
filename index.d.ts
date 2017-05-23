@@ -1,6 +1,10 @@
+/// <reference types="events" />
+/// <reference types="request" />
+/// <reference types="ws" />
+
 declare module 'tmi.js' {
-    import {EventEmitter} from 'events';
-    import {Options, RequestCallback} from 'request';
+    import { EventEmitter } from 'events';
+    import { Options, RequestCallback } from 'request';
     import * as WebSocket from 'ws';
 
     interface LoggingFunction {
@@ -176,7 +180,7 @@ declare module 'tmi.js' {
 
         // endregion
     }
-    
+
     export interface SubscriptionMethod {
         prime: boolean;
     }
