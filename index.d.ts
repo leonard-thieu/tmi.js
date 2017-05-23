@@ -98,7 +98,7 @@ declare module 'tmi.js' {
         on(event: 'slowmode', listener: (channel: string, enabled: boolean, length: number) => void): this;
         on(event: 'subscribers', listener: (channel: string, enabled: boolean) => void): this;
         // method undocumented
-        on(event: 'subscription', listener: (channel: string, username: string, method: object) => void): this;
+        on(event: 'subscription', listener: (channel: string, username: string, method: SubscriptionMethod) => void): this;
         on(event: 'timeout', listener: (channel: string, username: string, reason: string | null, duration: number) => void): this;
         on(event: 'unhost', listener: (channel: string, viewers: number) => void): this;
         on(event: 'unmod', listener: (channel: string, username: string) => void): this;
@@ -169,11 +169,16 @@ declare module 'tmi.js' {
 
         // region Undocumented
 
+        emotes: string;
         emotesets: Twitch.EmoteSets;
         globaluserstate: Twitch.GlobalUserState;
         ws: WebSocket;
 
         // endregion
+    }
+    
+    export interface SubscriptionMethod {
+        prime: boolean;
     }
 }
 
@@ -188,7 +193,7 @@ declare namespace Twitch {
     }
 
     interface GlobalUserState {
-        'badges': { [setName: string]: string } | null;
+        'badges': Badges | null;
         'badges-raw': string | null;
         'color': string | null;
         'display-name': string;
@@ -198,12 +203,12 @@ declare namespace Twitch {
     }
 
     interface UserState {
-        'badges': { [setName: string]: string } | null;
+        'badges': Badges | null;
         'badges-raw': string | null;
         'bits'?: number;
         'color': string | null;
         'display-name': string;
-        'emotes': { [id: string]: string[] } | null;
+        'emotes': Emotes | null;
         'emotes-raw': string | null;
         'historical'?: boolean;
         'id': string;
@@ -224,11 +229,11 @@ declare namespace Twitch {
     }
 
     interface WhisperUserState {
-        'badges': { [setName: string]: string } | null;
+        'badges': Badges | null;
         'badges-raw': string | null;
         'color': string | null;
         'display-name': string;
-        'emotes': { [id: string]: string[] } | null;
+        'emotes': Emotes | null;
         'emotes-raw': string | null;
         'message-id': string;
         'message-type': string;
@@ -247,5 +252,13 @@ declare namespace Twitch {
         'emote-only'?: boolean;
         'followers-only'?: number | false;
         'channel': string;
+    }
+
+    interface Badges {
+        [setName: string]: string;
+    }
+
+    interface Emotes {
+        [id: string]: string[];
     }
 }
