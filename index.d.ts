@@ -1,4 +1,4 @@
-/// <reference types="events" />
+/// <reference types="node" />
 /// <reference types="request" />
 /// <reference types="ws" />
 
